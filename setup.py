@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="mistsystems-tmunzer",
+    name="mistsystems",
     version="0.0.1",
     author="Thomas Munzer",
     author_email="tmunzer@juniper.net",

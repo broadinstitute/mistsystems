@@ -4,13 +4,13 @@
 ## How to use this library
 #### With API Token
 ```
->>>from mistsystems import api
+>>> from mistsystems import api
 
 >>> mist = api.MistSystems(host="api.mist.com", apitoken="mysecretapitoken")
 ```
 #### With Login/password
 ```
->>>from mistsystems import api
+>>> from mistsystems import api
 
 >>> mist = api.MistSystems(host="api.mist.com", email="user@mycorp.com", password="mysecretpassword")
 ```
