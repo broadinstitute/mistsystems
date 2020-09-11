@@ -18,6 +18,7 @@ class Orgs():
         self.devices = orgs.devices.Devices(session)
         self.deviceprofiles = orgs.deviceprofiles.DeviceProfiles(session)
         self.info = orgs.info.Info(session)
+        self.juniper = orgs.juniper.Juniper(session)
         self.licenses = orgs.licenses.Licenses(session)
         self.mxclusters = orgs.mxclusters.MxClusters(session)
         self.mxedges = orgs.mxedges.MxEdges(session)
