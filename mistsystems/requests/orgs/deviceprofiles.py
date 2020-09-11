@@ -23,3 +23,21 @@ class DeviceProfiles():
         uri = "/api/v1/orgs/%s/deviceprofiles" % org_id
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
+    def get_by_id(self, org_id, deviceprofile_id):
+        uri = "/api/v1/orgs/{0}/deviceprofiles/{1}".format(org_id, deviceprofile_id)
+        resp = self.session.mist_get(uri)
+        return resp
+
+    def assign(self, org_id, deviceprofile_id, macs=[]):
+        uri = "/api/v1/orgs/{0}/deviceprofiles/{1}/assign".format(org_id, deviceprofile_id)
+        body = {"macs": macs}
+        resp = self.session.mist_post(uri, body=body)
+        return resp
+        return resp
+
+    def unassign(self, org_id, deviceprofile_id, macs=[]):
+        uri = "/api/v1/orgs/{0}/deviceprofiles/{1}/unassign".format(org_id, deviceprofile_id)
+        body = {"macs": macs}
+        resp = self.session.mist_post(uri, body=body)
+        return resp
