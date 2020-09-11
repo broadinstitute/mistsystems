@@ -66,7 +66,7 @@ class AssetFilters():
         return resp
 
 
-    def details(self, site_id, assetfilter_id, page=1, limit=100):
+    def getdetails(self, site_id, assetfilter_id, page=1, limit=100):
         """
         Get the list of the site asset filters
         Parameters:
