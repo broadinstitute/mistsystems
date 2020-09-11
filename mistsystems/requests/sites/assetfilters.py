@@ -52,7 +52,7 @@ class AssetFilters():
         resp = self.session.mist_delete(uri)
         return resp
 
-    def get(self, site_id, page=1, limit=100):
+    def get(self, site_id, query={}, page=1, limit=100):
         """
         Get the list of the site asset filters
         Parameters:
@@ -62,20 +62,17 @@ class AssetFilters():
             limit: Int (maximum number of entries per request)
         """
         uri = "/api/v1/sites/{0}/assetfilters".format(site_id)
-        resp = self.session.mist_get(uri, page=page, limit=limit)
+        resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
 
 
-    def getdetails(self, site_id, assetfilter_id, page=1, limit=100):
+    def getDetails(self, site_id, assetfilter_id):
         """
         Get the list of the site asset filters
         Parameters:
             site_id: String
             assetfilter_id: String
-            query: Dict (dict of search filters)
-            page: Int (pagination page)
-            limit: Int (maximum number of entries per request)
         """
         uri = "/api/v1/sites/{0}/assetfilters/{1}".format(site_id, assetfilter_id)
-        resp = self.session.mist_get(uri, page=page, limit=limit)
+        resp = self.session.mist_get(uri)
         return resp

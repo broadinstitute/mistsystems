@@ -27,7 +27,7 @@ class Alarms():
         resp = self.session.mist_post(uri)
         return resp
 
-    def multiack(self, site_id, alarm_ids=[], note=""):
+    def multiAck(self, site_id, alarm_ids=[], note=""):
         """
         Acknowledge multiple site alarms.
         Parameters:
@@ -40,7 +40,7 @@ class Alarms():
         resp = self.session.mist_post(uri, body=body)
         return resp
 
-    def multiunack(self, site_id, alarm_ids=[]):
+    def multiUnack(self, site_id, alarm_ids=[]):
         """
         Un-acknowledge multiple site alarms.
         Parameters:
@@ -52,7 +52,7 @@ class Alarms():
         resp = self.session.mist_post(uri, body=body)
         return resp
 
-    def ackall(self, site_id, note=""):
+    def ackAll(self, site_id, note=""):
         """
         Acknowledge all the site alarms.
         Parameters:
@@ -64,7 +64,7 @@ class Alarms():
         resp = self.session.mist_post(uri, body=body)
         return resp
 
-    def unackall(self, site_id):
+    def unackAll(self, site_id):
         """
         Un-acknowledge all the site alarms.
         Parameters:
