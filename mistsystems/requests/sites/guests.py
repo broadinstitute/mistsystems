@@ -14,7 +14,7 @@ class Guests():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def get_details(self, site_id, guest_mac):
+    def get_by_id(self, site_id, guest_mac):
         """
         get the information about an authorized guest
         Parameters:

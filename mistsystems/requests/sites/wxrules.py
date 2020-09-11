@@ -45,7 +45,7 @@ class WxRules():
         resp = self.session.mist_get(uri, query, page=page, limit=limit)
         return resp
 
-    def get_details(self, site_id, wxrule_id):
+    def get_by_id(self, site_id, wxrule_id):
         """
         Get one WxRule details
         Parameters:

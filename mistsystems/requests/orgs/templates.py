@@ -8,7 +8,7 @@ class Templates():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def get_details(self, org_id, template_id):
+    def get_by_id(self, org_id, template_id):
         uri = "/api/v1/orgs/%s/templates/%s" % (org_id, template_id)
         resp = self.session.mist_get(uri)
         return resp

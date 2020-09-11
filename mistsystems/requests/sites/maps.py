@@ -15,7 +15,7 @@ class Maps():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def get_details(self, site_id, map_id):
+    def get_by_id(self, site_id, map_id):
         """
         Get map information
         Parameters:

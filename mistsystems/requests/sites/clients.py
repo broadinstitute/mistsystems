@@ -210,7 +210,7 @@ class Stats():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def get_details(self, site_id, client_mac):
+    def get_by_id(self, site_id, client_mac):
         """
         Get stats for one client
         Parameters:
