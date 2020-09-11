@@ -1,7 +1,11 @@
 # Mist System Python Library
-**This is an Unofficial Juniper-Mist library**
+**Unofficial Juniper-Mist library**
 
 ## How to use this library
+#### Install
+```
+pip install mistsystems
+```
 #### With API Token
 ```
 >>> from mistsystems import api
