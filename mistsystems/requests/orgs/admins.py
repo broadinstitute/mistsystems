@@ -33,6 +33,11 @@ class Admins():
         resp = self.session.mist_post(uri, body=body)
         return resp
 
+    def verify_invite(self, token):
+        uri="/api/v1/invite/verify/{0}".format(token)
+        resp = self.session.mist_get(uri)
+        return resp
+        
     def delete_invite(self, org_id, invite_id):
         uri = "/api/v1/orgs/%s/invites/%s" % (org_id, invite_id)
         resp = self.session.mist_delete(uri, org_id=org_id)
