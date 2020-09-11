@@ -244,3 +244,44 @@ class Stats():
         uri = "/api/v1/sites/{0}/stats/devices/{1}/clients".format(site_id, device_id)
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
+class Wired():
+    def __init__(self, session):
+        self.session = session
+
+    def search(self, site_id, search={}, page=1, limit=100):
+        """
+        Search Wired Client
+        Parameters:
+            site_id: String
+            search: Dict
+                device_mac: string: device mac
+                mac: string: client mac
+                port_id: string: port id
+                vlan: int: vlan
+            page: Int (pagination page)
+            limit: Int (maximum number of entries per request)
+        """
+        uri = "/api/v1/sites/{0}/wired_clients/search".format(site_id)
+        resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
+        return resp
+
+    def countByDistinctAttributes(self, site_id, distinct, search={}, page=1, limit=100):
+        """
+        Count number of wired client by distinct attribute
+        Parameters:
+            site_id: String
+            distinct: String (port_id, port_mac, full_duplex, mac, neighbor_macneighbor_port_desc, neighbor_system_name, poe_disabled, poe_mode, poe_on, speed, up)
+            search: Dict
+                device_mac: string: device mac
+                mac: string: client mac
+                port_id: string: port id
+                vlan: int: vlan
+            page: Int (pagination page)
+            limit: Int (maximum number of entries per request)
+        """
+        uri="/api/v1/sites/{0}/wired_clients/count".format(site_id)
+        query = search
+        query["distinct"] = distinct
+        resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
+        return resp

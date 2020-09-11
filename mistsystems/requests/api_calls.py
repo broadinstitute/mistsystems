@@ -42,6 +42,7 @@ class Sites():
         self.clientEvents = sites.client_events.ClientEvents(session)
         self.clients = {
             "wireless": sites.clients.Wireless(session),
+            "wired": sites.clients.Wired(session),
             "stats": sites.clients.Stats(session)
         }
         self.const = sites.const.Const(session)
