@@ -27,7 +27,13 @@ class Const():
         uri = "/api/v1/const/countries"
         resp = self.session.mist_get(uri)
         return resp
+
     def get_system_events(self):
         uri = "/api/v1/const/system_events"
+        resp = self.session.mist_get(uri)
+        return resp
+
+    def get_insights(self):
+        uri = "/api/v1/const/insight_metrics"
         resp = self.session.mist_get(uri)
         return resp
