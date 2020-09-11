@@ -45,7 +45,7 @@ class Devices():
         resp = self.session.mist_get(uri)
         return resp
 
-    def get_stats_devices(self, site_id, device_id=None, device_type=None, page=1, limit=100):
+    def get_stats(self, site_id, device_type=None, page=1, limit=100):
         """
         Get stats of the site devices
         Parameters:
@@ -57,11 +57,20 @@ class Devices():
         """
         uri = "/api/v1/sites/{0}/stats/devices".format(site_id)
         query = {}
-        if device_id:
-            uri += "/{0}" % device_id
         if device_type:
             query["type"] = device_type
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
+        return resp
+
+    def get_stats_details(self, site_id, device_id):
+        """
+        Get stats of the site devices
+        Parameters:
+            site_id: String
+            device_id: String
+        """
+        uri = "/api/v1/sites/{0}/stats/devices/{1}".format(site_id, device_id)
+        resp = self.session.mist_get(uri)
         return resp
 
     def create(self, site_id, device_settings):
@@ -429,3 +438,4 @@ class Devices():
         uri = "/api/v1/sites/{0}/devices/export".format(site_id)
         resp = self.session.mist_get(uri)
         return resp
+
