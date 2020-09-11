@@ -33,7 +33,6 @@ class Orgs():
         self.sites = orgs.sites.Sites(session)
         self.ssoroles = orgs.ssoroles.SsoRoles(session)
         self.ssos = orgs.ssos.Ssos(session)
-        self.stats = orgs.stats.Stats(session)
         self.subscriptions = orgs.subscriptions.Subscriptions(session)
         self.templates = orgs.templates.Templates(session)
         self.webhooks = orgs.webhooks.Webhooks(session)
