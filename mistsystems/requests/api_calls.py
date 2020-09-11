@@ -32,6 +32,7 @@ class Orgs():
         self.wxtags = orgs.wxtags.WxTags(session)
         self.wxtunnels = orgs.wxtunnels.WxTunnels(session)
 
+
 class Sites():
     def __init__(self, session):
         self.alarms = sites.alarms.Alarms(session)
@@ -39,6 +40,9 @@ class Sites():
         self.assets = sites.assets.Assets(session)
         self.beacons = sites.beacons.Beacons(session)
         self.clientEvents = sites.client_events.ClientEvents(session)
+        self.clients = {
+            "wireless": sites.clients.Wireless(session)
+        }
         self.const = sites.const.Const(session)
         self.devices = sites.devices.Devices(session)
         self.info = sites.info.Info(session)
