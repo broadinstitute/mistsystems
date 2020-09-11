@@ -3,7 +3,7 @@ class PcapBucket():
         self.session = session
 
     def set_bucket(self, org_id, bucket):
-        uri = "/api/v1/orgs/{0}/setting/pcap_bucket/setup"
+        uri = "/api/v1/orgs/{0}/setting/pcap_bucket/setup".format(org_id)
         body = {"bucket": bucket}
         resp = self.session.mist_post(uri, body= body)
         return resp
@@ -12,7 +12,7 @@ class PcapBucket():
         """
         NOTE: If successful, a “VERIFIED” file will be created in the bucket
         """
-        uri = "/api/v1/orgs/{0}/setting/pcap_bucket/verify"
+        uri = "/api/v1/orgs/{0}/setting/pcap_bucket/verify".format(org_id)
         body = {"bucket": bucket, "verify_token": verify_token}
         resp = self.session.mist_post(uri, body= body)
         return resp
