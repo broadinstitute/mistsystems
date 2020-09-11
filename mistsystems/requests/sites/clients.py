@@ -1,4 +1,5 @@
 class Wireless():
+
     def __init__(self, session): 
         self.session = session
 
@@ -189,4 +190,57 @@ class Wireless():
         """
         uri="/api/v1/sites/{0}/clients/{1}/events".format(site_id, client_mac)
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
+        return resp
+
+class Stats():
+    def __init__(self, session):
+        self.session = session
+
+    def get(self, site_id, page=1, limit=100):
+        """
+        Get list of client stats
+        Parameters:
+            site_id: String
+            page: Int (pagination page)
+            limit: Int (maximum number of entries per request)
+        """
+        uri = "/api/v1/sites/{0}/stats/clients".format(site_id)
+        resp = self.session.mist_get(uri, page=page, limit=limit)
+        return resp
+
+    def getDetails(self, site_id, client_mac):
+        """
+        Get stats for one client
+        Parameters:
+            site_id: String
+            client_mac: String
+        """
+        uri = "/api/v1/sites/{0}/stats/clients/{1}".format(site_id, client_mac)
+        resp = self.session.mist_get(uri)
+        return resp
+
+    def getOnMap(self, site_id, map_id, page=1, limit=100):
+        """
+        Get list of client stats on a map
+        Parameters:
+            site_id: String
+            map_id: String
+            page: Int (pagination page)
+            limit: Int (maximum number of entries per request)
+        """
+        uri = "/api/v1/sites/{0}/stats/maps/{1}/clients".format(site_id, map_id)
+        resp = self.session.mist_get(uri, page=page, limit=limit)
+        return resp
+
+    def getOnDevice(self, site_id, device_id, page=1, limit=100):
+        """
+        Get list of client stats on a device
+        Parameters:
+            site_id: String
+            device_id: Strong
+            page: Int (pagination page)
+            limit: Int (maximum number of entries per request)
+        """
+        uri = "/api/v1/sites/{0}/stats/devices/{1}/clients".format(site_id, device_id)
+        resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp

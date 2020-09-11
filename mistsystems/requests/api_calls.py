@@ -41,7 +41,8 @@ class Sites():
         self.beacons = sites.beacons.Beacons(session)
         self.clientEvents = sites.client_events.ClientEvents(session)
         self.clients = {
-            "wireless": sites.clients.Wireless(session)
+            "wireless": sites.clients.Wireless(session),
+            "stats": sites.clients.Stats(session)
         }
         self.const = sites.const.Const(session)
         self.devices = sites.devices.Devices(session)
