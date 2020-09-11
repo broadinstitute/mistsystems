@@ -23,3 +23,8 @@ class Webhooks():
         uri = "/api/v1/orgs/%s/webhooks" % org_id
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
+    def get_by_id(self, org_id, webhook_id):
+        uri = "/api/v1/orgs/%s/webhooks/%s" % (org_id, webhook_id)
+        resp = self.session.mist_get(uri)
+        return resp
