@@ -18,6 +18,12 @@ class Const():
         resp = self.session.mist_get(uri)
         return resp
 
+    def get_ap_channels(self, country_code):
+        uri = "/api/v1/const/ap_channels"
+        query = {"country_code": country_code}
+        resp = self.session.mist_get(uri=uri, query=query)
+        return resp
+
     def get_client_events(self):
         uri = "/api/v1/const/client_events"
         resp = self.session.mist_get(uri)
