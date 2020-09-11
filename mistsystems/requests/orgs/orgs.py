@@ -39,8 +39,3 @@ class Orgs():
         resp = self.session.mist_post(uri, body={"name": new_name})
         return resp
 
-    def update_settings(self, org_id, settings):
-        uri = "/api/v1/orgs/%s/setting" % org_id
-        body = settings
-        resp = self.session.mist_put(uri, body=body)
-        return resp
