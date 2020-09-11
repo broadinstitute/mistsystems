@@ -15,6 +15,7 @@ class Orgs():
         self.clients = {
             "wireless": orgs.clients.Wireless(session)
         }
+        self.devices = orgs.devices.Devices(session)
         self.deviceprofiles = orgs.deviceprofiles.DeviceProfiles(session)
         self.info = orgs.info.Info(session)
         self.licenses = orgs.licenses.Licenses(session)
