@@ -14,7 +14,7 @@ class MxEdges():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def get_stats_details(self, site_id, mxedge_id):
+    def get_stats_by_id(self, site_id, mxedge_id):
         """
         Get one site mist edge stat
         Parameters:

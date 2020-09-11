@@ -35,7 +35,7 @@ class Rogues():
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
 
-    def get_ap_details(self, site_id, rogue_bssid):
+    def get_ap_by_id(self, site_id, rogue_bssid):
         """
         Get list of rogue APs
         Parameters:

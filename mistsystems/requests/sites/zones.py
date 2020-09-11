@@ -48,7 +48,7 @@ class Zones():
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
 
-    def get_stats_details(self, site_id, zone_id):
+    def get_stats_by_id(self, site_id, zone_id):
         uri = "/api/v1/sites/{0}/stats/zones/{1}".format(site_id, zone_id)
         resp = self.session.mist_get(uri)
         return resp

@@ -62,7 +62,7 @@ class Devices():
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
 
-    def get_stats_details(self, site_id, device_id):
+    def get_stats_by_id(self, site_id, device_id):
         """
         Get stats of the site devices
         Parameters:

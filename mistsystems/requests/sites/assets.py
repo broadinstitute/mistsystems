@@ -78,7 +78,7 @@ class Assets():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def get_stats_details(self, site_id, asset_id):
+    def get_stats_by_id(self, site_id, asset_id):
         """
         Get stats of one site asset
         Parameters:

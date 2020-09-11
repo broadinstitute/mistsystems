@@ -86,7 +86,7 @@ class Site():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def get_uisettings_details(self, site_id, uisetting_id):
+    def get_uisettings_by_id(self, site_id, uisetting_id):
         uri = "/api/v1/sites/{0}/uisettings/{1}".format(site_id, uisetting_id)
         resp = self.session.mist_get(uri)
         return resp
