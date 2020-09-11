@@ -59,6 +59,7 @@ class Sites():
         self.rssizones = sites.rssizones.RssiZones(session)
         self.settings = sites.settings.Settings(session)
         self.stats = sites.stats.Stats(session)
+        self.subscriptions = sites.subscriptions.Subscriptions(session)
         self.systemEvents = sites.system_events.SystemEvents(session)
         self.vbeacons = sites.vbeacons.VBeacons(session)
         self.webhooks = sites.webhooks.Webhooks(session)
