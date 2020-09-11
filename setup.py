@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mistsystems",
-    version="0.1.1",
+    version="0.2.3",
     author="Thomas Munzer",
     author_email="tmunzer@juniper.net",
     description="Python Library to use Juniper-Mist APIs",

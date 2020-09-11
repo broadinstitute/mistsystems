@@ -34,7 +34,6 @@ class DeviceProfiles():
         body = {"macs": macs}
         resp = self.session.mist_post(uri, body=body)
         return resp
-        return resp
 
     def unassign(self, org_id, deviceprofile_id, macs=[]):
         uri = "/api/v1/orgs/{0}/deviceprofiles/{1}/unassign".format(org_id, deviceprofile_id)

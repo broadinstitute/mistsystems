@@ -4,6 +4,11 @@ class Orgs():
     def __init__(self, session):
         self.session = session
 
+    def get_by_id(self, org_id):
+        uri = "/api/v1/orgs/%s" % org_id
+        resp = self.session.mist_get(uri)
+        return resp
+
     def create(self, data):
         uri = "/api/v1/orgs"
         resp = self.session.mist_post(uri, body=data)
@@ -38,4 +43,3 @@ class Orgs():
         uri = "/api/v1/orgs/{0}/clone"
         resp = self.session.mist_post(uri, body={"name": new_name})
         return resp
-
