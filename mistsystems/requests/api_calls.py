@@ -11,7 +11,6 @@ class Orgs():
         self.alarmtemplates = orgs.alarmtemplates.AlarmTemplates(session)
         self.assetfilters = orgs.assetfilters.AssetFilters(session)
         self.audit_logs = orgs.audit_logs.AuditLogs(session)
-        self.channels = orgs.channels.Channels(session)
         self.certificates = orgs.certificates.Certificates(session)
         self.deviceprofiles = orgs.deviceprofiles.DeviceProfiles(session)
         self.info = orgs.info.Info(session)
