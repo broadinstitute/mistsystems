@@ -29,6 +29,6 @@ class Webhooks():
         return resp
 
     def ping (self, site_id, webhook_id):
-        uri = "/api/v1/sites/{0}/webhooks/{1}}/ping".format(site_id, webhook_id)
+        uri = "/api/v1/sites/{0}/webhooks/{1}/ping".format(site_id, webhook_id)
         resp = self.session.mist_post(uri, body=webhook_id)
         return resp
