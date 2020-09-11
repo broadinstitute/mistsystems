@@ -47,7 +47,7 @@ class Sites():
         self.const = sites.const.Const(session)
         self.devices = sites.devices.Devices(session)
         self.guests = sites.guests.Guests(session)
-        self.info = sites.info.Info(session)
+        self.site = sites.site.Site(session)
         self.insights = sites.insights.Insights(session)
         self.location = sites.location.Location(session)
         self.maps = sites.maps.Maps(session)
