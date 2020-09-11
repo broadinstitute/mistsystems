@@ -3,28 +3,23 @@ class SiteGroups():
     def __init__(self, session):
         self.session = session
 
-    def get(mist_session, org_id, page=1, limit=100):
+    def get(self, org_id, page=1, limit=100):
         uri = "/api/v1/orgs/%s/sitegroups" % org_id
-        resp = mist_session.mist_get(uri, page=page, limit=limit)
+        resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def get_by_id(mist_session, org_id, sitegroup_id):
+    def get_by_id(self, org_id, sitegroup_id):
         uri = "/api/v1/orgs/%s/sitegroups/%s" % (org_id, sitegroup_id)
-        resp = mist_session.mist_get(uri)
+        resp = self.session.mist_get(uri)
         return resp
 
-    def create(mist_session, org_id, group_name):
+    def create(self, org_id, group_name):
         uri = "/api/v1/orgs/%s/sitegroups" % org_id
         body = group_name
-        resp = mist_session.mist_post(uri, body=body)
+        resp = self.session.mist_post(uri, body=body)
         return resp
 
-    def update(mist_session, org_id, sitegroup_id, body):
+    def delete(self, org_id, sitegroup_id):
         uri = "/api/v1/orgs/%s/sitegroups/%s" % (org_id, sitegroup_id)
-        resp = mist_session.mist_put(uri, body=body)
-        return resp
-
-    def delete(mist_session, org_id, sitegroup_id):
-        uri = "/api/v1/orgs/%s/sitegroups/%s" % (org_id, sitegroup_id)
-        resp = mist_session.mist_delete(uri)
+        resp = self.session.mist_delete(uri)
         return resp
