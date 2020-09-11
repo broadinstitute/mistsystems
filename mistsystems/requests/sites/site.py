@@ -4,17 +4,17 @@ class Site():
         self.session = session
 
     def get_info(self, site_id):
-        uri = "/api/v1/sites/{0}/settings".format(site_id)
+        uri = "/api/v1/sites/{0}/setting".format(site_id)
         resp = self.session.mist_get(uri)
         return resp
 
     def get_stats(self, site_id):
-        uri = "/api/v1/sites/{0}/settings".format(site_id)
+        uri = "/api/v1/sites/{0}/setting".format(site_id)
         resp = self.session.mist_get(uri)
         return resp
 
     def get_settings(self, site_id):
-        uri = "/api/v1/sites/{0}/settings".format(site_id)
+        uri = "/api/v1/sites/{0}/setting".format(site_id)
         resp = self.session.mist_get(uri)
         return resp
 
@@ -24,7 +24,7 @@ class Site():
         return resp
 
     def update(self, site_id, site_settings):
-        uri = "/api/v1/sites/{0}/settings".format(site_id)
+        uri = "/api/v1/sites/{0}/setting".format(site_id)
         resp = self.session.mist_put(uri, site_settings)
         return resp
 
