@@ -23,3 +23,18 @@ class MxTunnels():
         uri = "/api/v1/orgs/%s/mxtunnels" % org_id
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
+    def get_by_id(self, org_id, mxtunnel_id):
+        uri = "/api/v1/orgs/%s/mxtunnels/%s" % (org_id, mxtunnel_id)
+        resp = self.session.mist_get(uri)
+        return resp
+
+    def get_stats(self, org_id, page=1, limit=100):
+        uri = "/api/v1/orgs/%s/stats/mxtunnels/search" % org_id
+        resp = self.session.mist_get(uri, page=page, limit=limit)
+        return resp
+
+    def get_stats_by_id(self, org_id, mxtunnel_id):
+        uri = "/api/v1/orgs/%s/stats/mxtunnels/%s" % (org_id, mxtunnel_id)
+        resp = self.session.mist_get(uri)
+        return resp
