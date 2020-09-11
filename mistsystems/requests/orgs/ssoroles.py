@@ -24,18 +24,3 @@ class SsoRoles():
         uri = "/api/v1/orgs/%s/ssoroles/%s" % (org_id, ssorole_id)
         resp = self.session.mist_delete(uri)
         return resp
-
-    def get__saml_metadata(self, org_id, sso_id):
-        uri = "/api/v1/orgs/%s/ssos/%s/metadata" % (org_id, sso_id)
-        resp = self.session.mist_get(uri)
-        return resp
-
-    def download_saml_metadata(self, org_id, sso_id):
-        uri = "/api/v1/orgs/%s/ssos/%s/metadata.xml" % (org_id, sso_id)
-        resp = self.session.mist_get(uri)
-        return resp
-
-    def get_sso_failures(self, org_id, sso_id, page=1, limit=100):
-        uri = "/api/v1/orgs/%s/ssos/%s/failures" % (org_id, sso_id)
-        resp = self.session.mist_get(uri, page=page, limit=limit)
-        return resp
