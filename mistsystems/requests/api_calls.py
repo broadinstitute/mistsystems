@@ -29,7 +29,6 @@ class Orgs():
         self.psks = orgs.psks.Psks(session)
         self.rftemplates = orgs.rftemplates.RfTemplates(session)
         self.secpolicies = orgs.secpolicies.SecPolicies(session)
-        self.settings = orgs.settings.Settings(session)
         self.sitegroups = orgs.sitegroups.SiteGroups(session)
         self.sites = orgs.sites.Sites(session)
         self.ssoroles = orgs.ssoroles.SsoRoles(session)
