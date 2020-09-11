@@ -51,6 +51,7 @@ class Sites():
         self.insights = sites.insights.Insights(session)
         self.location = sites.location.Location(session)
         self.maps = sites.maps.Maps(session)
+        self.mxedges = sites.mxedges.MxEdges(session)
         self.psks = sites.psks.Psks(session)
         self.rogues = sites.rogues.Rogues(session)
         self.rrm = sites.rrm.Rrm(session)
