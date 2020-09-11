@@ -23,3 +23,8 @@ class AssetFilters():
         uri = "/api/v1/orgs/%s/assetfilters" % org_id
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
+    def get_by_id(self, org_id, assetfilter_id):
+        uri = "/api/v1/orgs/%s/assetfilters/%s" % (org_id, assetfilter_id)
+        resp = self.session.mist_get(uri)
+        return resp
