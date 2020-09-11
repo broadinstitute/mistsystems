@@ -46,6 +46,7 @@ class Sites():
         }
         self.const = sites.const.Const(session)
         self.devices = sites.devices.Devices(session)
+        self.guests = sites.guests.Guests(session)
         self.info = sites.info.Info(session)
         self.insights = sites.insights.Insights(session)
         self.iot = sites.iot.Iot(session)
