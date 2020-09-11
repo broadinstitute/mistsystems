@@ -49,7 +49,6 @@ class Sites():
         self.guests = sites.guests.Guests(session)
         self.info = sites.info.Info(session)
         self.insights = sites.insights.Insights(session)
-        self.iot = sites.iot.Iot(session)
         self.location = sites.location.Location(session)
         self.maps = sites.maps.Maps(session)
         self.psks = sites.psks.Psks(session)
