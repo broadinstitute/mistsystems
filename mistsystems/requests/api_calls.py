@@ -34,6 +34,7 @@ class Orgs():
 
 class Sites():
     def __init__(self, session):
+        self.alarms = sites.alarms.Alarms(session)
         self.assetfilters = sites.assetfilters.AssetFilters(session)
         self.assets = sites.assets.Assets(session)
         self.beacons = sites.beacons.Beacons(session)
