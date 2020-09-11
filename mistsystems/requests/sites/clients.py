@@ -3,7 +3,7 @@ class Wireless():
     def __init__(self, session):
         self.session = session
 
-    def disconnectClient(self, site_id, client_mac):
+    def disconnect_client(self, site_id, client_mac):
         """
         Disconnect a wireless client
         Parameters:
@@ -15,7 +15,7 @@ class Wireless():
         resp = self.session.mist_post(uri)
         return resp
 
-    def disconnectMultipleClients(self, site_id, client_macs):
+    def disconnect_multiple_clients(self, site_id, client_macs):
         """
         Disconnect multiple wireless clients
         Parameters:
@@ -26,7 +26,7 @@ class Wireless():
         resp = self.session.mist_post(uri, body=client_macs)
         return resp
 
-    def unauthorizeClient(self, site_id, client_mac):
+    def unauthorize_client(self, site_id, client_mac):
         """
         Unauthorize a wireless client
         Parameters:
@@ -38,7 +38,7 @@ class Wireless():
         resp = self.session.mist_post(uri)
         return resp
 
-    def unauthorizeMultipleClients(self, site_id, client_macs):
+    def unauthorize_multiple_clients(self, site_id, client_macs):
         """
         Unauthorize multiple wireless clients
         Parameters:
@@ -69,7 +69,7 @@ class Wireless():
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
         return resp
 
-    def searchClientEvents(self, site_id, search={}, page=1, limit=100):
+    def search_client_events(self, site_id, search={}, page=1, limit=100):
         """
         Search client events
         Parameters:
@@ -86,7 +86,7 @@ class Wireless():
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
         return resp
 
-    def searchClientSession(self, site_id, search={}, page=1, limit=100):
+    def search_client_sessions(self, site_id, search={}, page=1, limit=100):
         """
         Search client sessions
         Parameters:
@@ -107,7 +107,7 @@ class Wireless():
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
         return resp
 
-    def countByDistinctAttributes(self, site_id, distinct, search={}, page=1, limit=100):
+    def count_by_distinct_attributes(self, site_id, distinct, search={}, page=1, limit=100):
         """
         Count number of wireless client by distinct attribute
         Parameters:
@@ -130,7 +130,7 @@ class Wireless():
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
 
-    def countSessionsByDistinctAttributes(self, site_id, distinct, search={}, page=1, limit=100):
+    def count_sessions_by_distinct_attributes(self, site_id, distinct, search={}, page=1, limit=100):
         """
         Count number of wireless client by distinct attribute
         Parameters:
@@ -154,7 +154,7 @@ class Wireless():
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
 
-    def countEventsByDistinctAttributes(self, site_id, distinct, search={}, page=1, limit=100):
+    def count_events_by_distinct_attributes(self, site_id, distinct, search={}, page=1, limit=100):
         """
         Count number of wireless client by distinct attribute
         Parameters:
@@ -174,7 +174,7 @@ class Wireless():
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
 
-    def getClientEvents(self, site_id, client_mac, search={}, page=1, limit=100):
+    def get_client_events(self, site_id, client_mac, search={}, page=1, limit=100):
         """ 
         Get list of client events
         Parameters:
@@ -210,7 +210,7 @@ class Stats():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def getDetails(self, site_id, client_mac):
+    def get_details(self, site_id, client_mac):
         """
         Get stats for one client
         Parameters:
@@ -221,7 +221,7 @@ class Stats():
         resp = self.session.mist_get(uri)
         return resp
 
-    def getOnMap(self, site_id, map_id, page=1, limit=100):
+    def get_on_map(self, site_id, map_id, page=1, limit=100):
         """
         Get list of client stats on a map
         Parameters:
@@ -235,7 +235,7 @@ class Stats():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def getOnDevice(self, site_id, device_id, page=1, limit=100):
+    def get_on_device(self, site_id, device_id, page=1, limit=100):
         """
         Get list of client stats on a device
         Parameters:
@@ -271,7 +271,7 @@ class Wired():
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
         return resp
 
-    def countByDistinctAttributes(self, site_id, distinct, search={}, page=1, limit=100):
+    def count_by_distinct_attributes(self, site_id, distinct, search={}, page=1, limit=100):
         """
         Count number of wired client by distinct attribute
         Parameters:

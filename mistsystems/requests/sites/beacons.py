@@ -75,7 +75,7 @@ class Beacons():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
-    def getDetails(self, site_id, beacon_id):
+    def get_details(self, site_id, beacon_id):
         """
         Get details of the site beacon
         Parameters:
@@ -86,7 +86,7 @@ class Beacons():
         resp = self.session.mist_get(uri)
         return resp
 
-    def getStats(self, site_id, page=1, limit=100):
+    def get_stats(self, site_id, page=1, limit=100):
         """
         Get stats of the site breacons
         Parameters:

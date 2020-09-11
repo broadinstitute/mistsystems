@@ -3,31 +3,31 @@ class Const():
     def __init__(self, session):
         self.session = session
 
-    def getApplications(self):
+    def get_applications(self):
         uri = "/api/v1/const/applications"
         resp = self.session.mist_get(uri)
         return resp
 
-    def getApLedStatus(self):
+    def get_ap_led_status(self):
         uri = "/api/v1/const/ap_led_status"
         resp = self.session.mist_get(uri)
         return resp
 
-    def getApModels(self):
+    def get_ap_models(self):
         uri = "/api/v1/const/device_models"
         resp = self.session.mist_get(uri)
         return resp
 
-    def getClientEvents(self):
+    def get_client_events(self):
         uri = "/api/v1/const/client_events"
         resp = self.session.mist_get(uri)
         return resp
 
-    def getCountryCodes(self):
+    def get_country_codes(self):
         uri = "/api/v1/const/countries"
         resp = self.session.mist_get(uri)
         return resp
-    def getSystemEvents(self):
+    def get_system_events(self):
         uri = "/api/v1/const/system_events"
         resp = self.session.mist_get(uri)
         return resp
