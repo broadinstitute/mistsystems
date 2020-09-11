@@ -24,4 +24,9 @@ class WxTunnels():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
+    def get_by_id(self, org_id, wxtunnel_id):
+        uri = "/api/v1/orgs/%s/wxtunnels/%s" % (org_id, wxtunnel_id)
+        resp = self.session.mist_get(uri)
+        return resp
+
 
