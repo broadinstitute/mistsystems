@@ -1,6 +1,6 @@
 class Wireless():
 
-    def __init__(self, session): 
+    def __init__(self, session):
         self.session = session
 
     def disconnectClient(self, site_id, client_mac):
@@ -10,7 +10,8 @@ class Wireless():
             site_id: String
             client_mac: String
         """
-        uri = "/api/v1/sites/{0}/clients/{1}/disconnect".format(site_id, client_mac)
+        uri = "/api/v1/sites/{0}/clients/{1}/disconnect".format(
+            site_id, client_mac)
         resp = self.session.mist_post(uri)
         return resp
 
@@ -21,7 +22,7 @@ class Wireless():
             site_id: String
             client_macs: Array
         """
-        uri = "/api/v1/sites/{0}/clients/disconnect".format(site_id)        
+        uri = "/api/v1/sites/{0}/clients/disconnect".format(site_id)
         resp = self.session.mist_post(uri, body=client_macs)
         return resp
 
@@ -32,7 +33,8 @@ class Wireless():
             site_id: String
             client_mac: String
         """
-        uri = "/api/v1/sites/{0}/clients/{1}/unauthorize".format(site_id, client_mac)
+        uri = "/api/v1/sites/{0}/clients/{1}/unauthorize".format(
+            site_id, client_mac)
         resp = self.session.mist_post(uri)
         return resp
 
@@ -43,7 +45,7 @@ class Wireless():
             site_id: String
             client_macs: Array
         """
-        uri = "/api/v1/sites/{0}/clients/unauthorize".format(site_id)        
+        uri = "/api/v1/sites/{0}/clients/unauthorize".format(site_id)
         resp = self.session.mist_post(uri, body=client_macs)
         return resp
 
@@ -63,10 +65,9 @@ class Wireless():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri="/api/v1/sites/{0}/clients/search".format(site_id)
+        uri = "/api/v1/sites/{0}/clients/search".format(site_id)
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
         return resp
-
 
     def searchClientEvents(self, site_id, search={}, page=1, limit=100):
         """
@@ -81,7 +82,7 @@ class Wireless():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri="/api/v1/sites/{0}/clients/events".format(site_id)
+        uri = "/api/v1/sites/{0}/clients/events".format(site_id)
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
         return resp
 
@@ -102,7 +103,7 @@ class Wireless():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri="/api/v1/sites/{0}/clients/sessions/search".format(site_id)
+        uri = "/api/v1/sites/{0}/clients/sessions/search".format(site_id)
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
         return resp
 
@@ -123,12 +124,12 @@ class Wireless():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri="/api/v1/sites/{0}/clients/count".format(site_id)
+        uri = "/api/v1/sites/{0}/clients/count".format(site_id)
         query = search
         query["distinct"] = distinct
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
-    
+
     def countSessionsByDistinctAttributes(self, site_id, distinct, search={}, page=1, limit=100):
         """
         Count number of wireless client by distinct attribute
@@ -147,7 +148,7 @@ class Wireless():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri="/api/v1/sites/{0}/clients/sessions/count".format(site_id)
+        uri = "/api/v1/sites/{0}/clients/sessions/count".format(site_id)
         query = search
         query["distinct"] = distinct
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
@@ -167,12 +168,11 @@ class Wireless():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri="/api/v1/sites/{0}/clients/events/count".format(site_id)
+        uri = "/api/v1/sites/{0}/clients/events/count".format(site_id)
         query = search
         query["distinct"] = distinct
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
         return resp
-
 
     def getClientEvents(self, site_id, client_mac, search={}, page=1, limit=100):
         """ 
@@ -188,9 +188,11 @@ class Wireless():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri="/api/v1/sites/{0}/clients/{1}/events".format(site_id, client_mac)
+        uri = "/api/v1/sites/{0}/clients/{1}/events".format(
+            site_id, client_mac)
         resp = self.session.mist_get(uri, query=search, page=page, limit=limit)
         return resp
+
 
 class Stats():
     def __init__(self, session):
@@ -228,7 +230,8 @@ class Stats():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri = "/api/v1/sites/{0}/stats/maps/{1}/clients".format(site_id, map_id)
+        uri = "/api/v1/sites/{0}/stats/maps/{1}/clients".format(
+            site_id, map_id)
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
@@ -241,9 +244,11 @@ class Stats():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri = "/api/v1/sites/{0}/stats/devices/{1}/clients".format(site_id, device_id)
+        uri = "/api/v1/sites/{0}/stats/devices/{1}/clients".format(
+            site_id, device_id)
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
 
 class Wired():
     def __init__(self, session):
@@ -280,7 +285,7 @@ class Wired():
             page: Int (pagination page)
             limit: Int (maximum number of entries per request)
         """
-        uri="/api/v1/sites/{0}/wired_clients/count".format(site_id)
+        uri = "/api/v1/sites/{0}/wired_clients/count".format(site_id)
         query = search
         query["distinct"] = distinct
         resp = self.session.mist_get(uri, query=query, page=page, limit=limit)
