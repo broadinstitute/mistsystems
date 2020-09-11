@@ -23,3 +23,8 @@ class VBeacons():
         uri = "/api/v1/sites/%s/vbeacons" % site_id
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
+    def get_details(self, site_id, vbeacon_id):
+        uri = "/api/v1/sites/{0}/vbeacons/{1}".format(site_id, vbeacon_id)
+        resp = self.session.mist_get(uri)
+        return resp

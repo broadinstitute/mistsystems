@@ -20,6 +20,24 @@ class WxTunnels():
         return resp
 
     def get(self, site_id, page=1, limit=100):
+        """
+        Get list of Tunnels
+        Parameters:
+            site_id: String
+            page: Int
+            limit: Int
+        """
         uri = "/api/v1/sites/%s/wxtunnels" % site_id
         resp = self.session.mist_get(uri, page=page, limit=limit)
+        return resp
+
+    def get_details(self, site_id, wxtunnel_id):
+        """
+        Get one Tunnel details
+        Parameters:
+            site_id: String
+            wxtunnel_id: String
+        """
+        uri = "/api/v1/sites/{0}/wxtunnels/{1}".format(site_id, wxtunnel_id)
+        resp = self.session.mist_get(uri)
         return resp

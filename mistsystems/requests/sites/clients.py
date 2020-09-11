@@ -235,6 +235,20 @@ class Stats():
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
 
+
+    def get_unconnected_on_map(self, site_id, map_id, page=1, limit=100):
+        """
+        Get list of unconnected client stats on a map
+        Parameters:
+            site_id: String
+            map_id: String
+            page: Int (pagination page)
+            limit: Int (maximum number of entries per request)
+        """
+        uri = "/api/v1/sites/{0}/stats/maps/{1}/unconnected_clients".format(
+            site_id, map_id)
+        resp = self.session.mist_get(uri, page=page, limit=limit)
+        return resp
     def get_on_device(self, site_id, device_id, page=1, limit=100):
         """
         Get list of client stats on a device

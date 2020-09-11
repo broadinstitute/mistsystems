@@ -20,6 +20,48 @@ class WxTags():
         return resp
 
     def get(self, site_id, page=1, limit=100):
+        """
+        Get list of WxRules
+        Parameters:
+            site_id: String
+            page: Int
+            limit: Int
+        """
         uri = "/api/v1/sites/%s/wxtags" % site_id
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
+    def get_details(self, site_id, wxtag_id):
+        """
+        Get one WxRule details
+        Parameters:
+            site_id: String
+            wxtag_id: String
+        """
+        uri = "/api/v1/sites/{0}/wxtags/{1}".format(site_id, wxtag_id)
+        resp = self.session.mist_get(uri)
+        return resp
+
+    def get_applications(self, site_id, page=1, limit=100):
+        """
+        Parameters:
+            site_id: String
+            page: Int
+            limit: Int
+        """
+        uri = "/api/v1/sites/%s/wxtags/apps" % site_id
+        resp = self.session.mist_get(uri, page=page, limit=limit)
+        return resp
+
+    def get_matching_clients(self, site_id, wxtag_id, page=1, limit=100):
+        """
+        Parameters:
+            site_id: String
+            wxtag_id: String
+            page: Int
+            limit: Int
+        """
+        uri = "/api/v1/sites/{0}/wxtags/{1}/clients".format(site_id, wxtag_id)
+        resp = self.session.mist_get(uri, page=page, limit=limit)
+        return resp
+        
