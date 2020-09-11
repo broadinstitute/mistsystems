@@ -23,3 +23,8 @@ class MxClusters():
         uri = "/api/v1/orgs/%s/mxclusters" % org_id
         resp = self.session.mist_get(uri, page=page, limit=limit)
         return resp
+
+    def get_by_id(self, org_id, mxcluster_id):
+        uri = "/api/v1/orgs/%s/mxclusters/%s" % (org_id, mxcluster_id)
+        resp = self.session.mist_get(uri)
+        return resp
