@@ -30,3 +30,27 @@ class AlarmTemplates():
         uri = "/api/v1/orgs/%s/alarmtemplates/%s" % (org_id, alarmtemplate_id)
         resp = self.session.mist_get(uri)
         return resp
+
+    def get_alarm_template_rules(self, org_id, alarmtemplate_id):
+        uri = "/api/v1/orgs/{0}/alarmtemplates/{1}/alarmrules".format(org_id, alarmtemplate_id)
+        resp = self.session.mist_get(uri)
+        return resp
+
+    def suppress(self, org_id, duration, sitegroup_ids=None, site_ids=None):
+        """
+        In certain situations, for example, scheduled maintanance, you may want to suspend alarms to be triggered for a period of time.
+        Parameters:
+            org_id: String
+            duration: int (duration, in seconds. Deafult is 60. Maximum allowed duration is 1 day (86400).)
+            sitegroup_ids: Array
+            site_ids: Array
+        """
+        uri = "/api/v1/orgs/{0}/alarmtemplates/suppress".format(org_id)
+        body = {
+            "duration": duration, 
+            "applies": {"org_id": org_id}
+            }
+        if sitegroup_ids: body["applies"]["sitegroup_ids"] = sitegroup_ids
+        if site_ids: body["applies"]["site_ids"] = site_ids
+        resp = self.session.mist_post(uri, body=body)
+        return resp
