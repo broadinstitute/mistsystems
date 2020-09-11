@@ -52,6 +52,7 @@ class Sites():
         self.location = sites.location.Location(session)
         self.maps = sites.maps.Maps(session)
         self.mxedges = sites.mxedges.MxEdges(session)
+        self.packet_captures = sites.packet_captures.PacketCaptures(session)
         self.psks = sites.psks.Psks(session)
         self.rogues = sites.rogues.Rogues(session)
         self.rrm = sites.rrm.Rrm(session)
