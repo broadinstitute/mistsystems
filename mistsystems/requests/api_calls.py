@@ -12,6 +12,9 @@ class Orgs():
         self.assetfilters = orgs.assetfilters.AssetFilters(session)
         self.audit_logs = orgs.audit_logs.AuditLogs(session)
         self.certificates = orgs.certificates.Certificates(session)
+        self.clients = {
+            "wireless": orgs.clients.Wireless(session)
+        }
         self.deviceprofiles = orgs.deviceprofiles.DeviceProfiles(session)
         self.info = orgs.info.Info(session)
         self.licenses = orgs.licenses.Licenses(session)
@@ -20,6 +23,7 @@ class Orgs():
         self.mxtunnels = orgs.mxtunnels.MxTunnels(session)
         self.networktemplates = orgs.networktemplates.NetworkTemplates(session)
         self.orgs = orgs.orgs.Orgs(session)
+        self.pcap_bucket = orgs.pcap_bucket.PcapBucket(session)
         self.psks = orgs.psks.Psks(session)
         self.rftemplates = orgs.rftemplates.RfTemplates(session)
         self.secpolicies = orgs.secpolicies.SecPolicies(session)
