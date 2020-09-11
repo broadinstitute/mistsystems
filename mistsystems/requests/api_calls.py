@@ -1,5 +1,8 @@
-from mistsystems.requests import orgs, sites
+from mistsystems.requests import orgs, sites, const
 
+class Const():
+    def __init__(self, session):
+        self.const = const.const.Const(session)
 
 class Orgs():
     def __init__(self, session):
