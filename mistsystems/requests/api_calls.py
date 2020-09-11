@@ -39,7 +39,6 @@ class Sites():
         self.assetfilters = sites.assetfilters.AssetFilters(session)
         self.assets = sites.assets.Assets(session)
         self.beacons = sites.beacons.Beacons(session)
-        self.clientEvents = sites.client_events.ClientEvents(session)
         self.clients = {
             "wireless": sites.clients.Wireless(session),
             "wired": sites.clients.Wired(session),
