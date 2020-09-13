@@ -9,7 +9,7 @@ import weakref
 from getpass import getpass
 
 from mistsystems.__req import Req
-from mistsystems.models.privilege import Privileges
+from mistsystems.models.privileges import Privileges
 
 from mistsystems.requests.api_calls import Orgs, Sites
 
@@ -48,6 +48,7 @@ class MistSystems():
     """
     def __init__(self, host=None, email="", password="", apitoken=None, session_file=None, settings_file=None, auto_login=True):   
         self._session = MistSession(host, email, password, apitoken, session_file, settings_file, auto_login)
+        self.privileges = Privileges(self._session.privileges)
         self.login = self._session.login
         self.logout = self._session.logout
         self.orgs = Orgs(self._session)
@@ -75,7 +76,7 @@ class MistSession(Req):
         self.host = host
         self.email = email
         self.password = password
-        self.privileges = Privileges([])
+        self.privileges = []
         self.tags = []
         self.authenticated = False
         self.csrftoken = ""
@@ -335,7 +336,7 @@ class MistSession(Req):
             else:
                 for key, val in resp['result'].items():
                     if key == "privileges":
-                        self.privileges = Privileges(resp['result']["privileges"])
+                        self.privileges = resp['result']["privileges"]
                     if key == "tags":
                         for tag in resp['result']["tags"]:
                             self.tags.append(tag)

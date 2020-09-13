@@ -18,6 +18,21 @@ pip install mistsystems
 
 >>> mist = api.MistSystems(host="api.mist.com", email="user@mycorp.com", password="mysecretpassword")
 ```
+#### Display account privileges
+```
+>>> print(mist.privileges)
+scope    role    name                   site_id    org_name    org_id                                msp_name       msp_id
+-------  ------  ---------------------  ---------  ----------  ------------------------------------  -------------  ------------------------------------
+org      admin   Demo Test                                     39ce2088-xxxx-xxxx-xxxx-1a5a88bab5ee
+org      admin   Demo 1                                        e338cdf2-xxxx-xxxx-xxxx-2996d983d8bc  MSP Demo  1e7002ba-xxxx-xxxx-xxxx-eb6a8151b731
+org      write   Demo 2                                        995f5d60-xxxx-xxxx-xxxx-4313da26e1c3
+org      read    Demo 3                                        3440ed64-xxxx-xxxx-xxxx-d62ac4586fd1
+```
+#### Find an organization 
+```
+>>> mist.privileges.find_org(name="test")
+[{'scope': 'org', 'org_id': '9ce2088-xxxx-xxxx-xxxx-1a5a88bab5ee', 'org_name': '', 'msp_id': '', 'msp_name': '', 'orggroup_ids': '', 'name': 'Demo Test', 'role': 'admin', 'site_id': '', 'sitegroup_ids': ''}, ]
+```
 #### Request the Mist Cloud
 ````
 >>> mist.orgs.sites.get(org_id="ca7e9350-xxxx-xxxx-xxxx-db350863a910")
