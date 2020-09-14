@@ -1,6 +1,6 @@
 '''
 Written by: Thomas Munzer (tmunzer@juniper.net)
-Github repository: https://github.com/tmunzer/Mist_library/
+Github repository: https://github.com/tmunzer/mistsystems/
 '''
 import logging
 import requests
@@ -47,14 +47,14 @@ class MistSystems():
         auto_login: Boolean (if the script has to validate the credentials automatically)
     """
     def __init__(self, host=None, email="", password="", apitoken=None, session_file=None, settings_file=None, auto_login=True):   
-        self._session = MistSession(host, email, password, apitoken, session_file, settings_file, auto_login)
+        self._session = _MistSession(host, email, password, apitoken, session_file, settings_file, auto_login)
         self.privileges = Privileges(self._session.privileges)
         self.orgs = Orgs(self._session)
         self.sites = Sites(self._session)
 
     def __str__(self):
         return self._session.__str__()
-        
+
     def login(self):
         if self._session.login():
             self.privileges = Privileges(self._session.privileges)
@@ -64,7 +64,7 @@ class MistSystems():
             self.privileges = []
 
 
-class MistSession(Req):
+class _MistSession(Req):
     """
     Initialize the Mist session, and validate the credentials. The session information can be passed as parameters, 
     loaded from the config file, or loaded from a saved session.
