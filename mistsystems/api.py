@@ -49,10 +49,19 @@ class MistSystems():
     def __init__(self, host=None, email="", password="", apitoken=None, session_file=None, settings_file=None, auto_login=True):   
         self._session = MistSession(host, email, password, apitoken, session_file, settings_file, auto_login)
         self.privileges = Privileges(self._session.privileges)
-        self.login = self._session.login
-        self.logout = self._session.logout
         self.orgs = Orgs(self._session)
         self.sites = Sites(self._session)
+
+    def __str__(self):
+        return self._session.__str__()
+        
+    def login(self):
+        if self._session.login():
+            self.privileges = Privileges(self._session.privileges)
+
+    def logout(self):
+        if self._session.logout():
+            self.privileges = []
 
 
 class MistSession(Req):
@@ -116,7 +125,7 @@ class MistSession(Req):
                     return False
         # if successfuly authenticated or API Token used
         if (self.get_auth_status()): 
-            self.getself() 
+            return self.getself() 
         # if authentication failed, exit with error code 255
         else:
             logging.error("Authentication failed... Exiting...") 
@@ -131,6 +140,8 @@ class MistSession(Req):
         if resp['status_code'] == 200:
             logging.warning("Logged out")
             self._set_session(False)
+            self.privileges=[]
+            return True
         else:
             try:
                 logging.error(resp.json()["detail"])
@@ -145,7 +156,7 @@ class MistSession(Req):
             if hasattr(self, field) and getattr(self, field) != "":
                 string += "{0}:\r\n".format(field)
                 if field == "privileges":
-                    string += Privileges(self.privileges).display()
+                    string += Privileges(self.privileges).__str__()
                     string += "\r\n"
                 elif field == "tags":
                     for tag in self.tags:
@@ -244,7 +255,7 @@ class MistSession(Req):
         elif value == False:
             self.authenticated = False
             self.csrftoken = ""
-            del self.session
+            self.session = requests.session()
 
     def get_auth_status(self):
         """
