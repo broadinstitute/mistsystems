@@ -1,4 +1,4 @@
-from mistsystems.manage import sites
+from mistsystems.core import sites
 
 
 class Sites():

@@ -3,13 +3,13 @@ import logging
 
 class SiteModel():
     def __init__(self, site_id=None):
-        self.site_id = site_id
+        self.id = site_id
         self.name = None
         self.timezone = None
         self.country_code = None
         self.latlng = None
         self.address = None
-        self.sitegroupo_ids = None
+        self.sitegroup_ids = None
         self.lat = None
         self.lng = None
         self.org_id = None
@@ -22,7 +22,7 @@ class SiteModel():
         self.tzoffset = None
 
     def _set_id(self, site_id):
-        self.site_id = site_id
+        self.id = site_id
 
     def _set_org_id(self, org_id):
         self.org_id = org_id
@@ -48,8 +48,8 @@ class SiteModel():
     def set_address(self, address):
         self.address = address
 
-    def set_sitegroupo_ids(self, sitegroupo_ids):
-        self.sitegroupo_ids = sitegroupo_ids
+    def set_sitegroupo_ids(self, sitegroup_ids):
+        self.sitegroup_ids = sitegroup_ids
 
     def set_lat(self, lat):
         self.lat = lat
@@ -72,28 +72,36 @@ class SiteModel():
     def set_tzoffset(self, tzoffset):
         self.tzoffset = tzoffset
 
-    def set_site(self, data):
-        self._set_id(data["id"])
-        self._set_org_id(data["org_id"])
-        self._set_created_time(data["created_time"])
-        self._set_modified_time(data["modified_time"])
-        self.set_name(data["name"])
-        self.set_timezone(data["timezone"])
-        self.set_country_code(data["country_code"])
-        self.set_latlng(data["latlng"])
-        self.set_address(data["address"])
-        self.set_sitegroupo_ids(data["sitegroupo_ids"])
-        self.set_lat(data["lat"])
-        self.set_lng(data["lng"])
-        self.set_rftempalte_id(data["rftempalte_id"])
-        self.set_secpolicy_id(data["secpolicy_id"])
-        self.set_alarmtemplate_id(data["alarmtemplate_id"])
-        self.set_networktemplate_id(data["networktemplate_id"])
-        self.set_tzoffset(data["tzoffset"])
+    def from_json(self, data):
+        if "id" in data: self._set_id(data["id"])
+        if "org_id" in data: self._set_org_id(data["org_id"])
+        if "created_time" in data: self._set_created_time(data["created_time"])
+        if "modified_time" in data: self._set_modified_time(data["modified_time"])
+        if "name" in data: self.set_name(data["name"])
+        if "timezone" in data: self.set_timezone(data["timezone"])
+        if "country_code" in data: self.set_country_code(data["country_code"])
+        if "latlng" in data: self.set_latlng(data["latlng"])
+        if "address" in data: self.set_address(data["address"])
+        if "sitegroup_ids" in data: self.sitegroup_ids(data["sitegroup_ids"])
+        if "lat" in data: self.set_lat(data["lat"])
+        if "lng" in data: self.set_lng(data["lng"])
+        if "rftempalte_id" in data: self.set_rftempalte_id(data["rftempalte_id"])
+        if "secpolicy_id" in data: self.set_secpolicy_id(data["secpolicy_id"])
+        if "alarmtemplate_id" in data: self.set_alarmtemplate_id(data["alarmtemplate_id"])
+        if "networktemplate_id" in data: self.set_networktemplate_id(data["networktemplate_id"])
+        if "tzoffset" in data: self.set_tzoffset(data["tzoffset"])
+        
+    
+    def to_json(self):
+        data = {}
+        for entry in self.__dict__:
+            if not entry.startswith("_"):
+                data[entry] = self.__dict__[entry]
+        return data
         
 
     def get_id(self):
-        return self.site_id
+        return self.id
 
     def get_org_id(self):
         return self.org_id 
@@ -119,8 +127,8 @@ class SiteModel():
     def get_address(self):
         return self.address 
 
-    def get_sitegroupo_ids(self):
-        return self.sitegroupo_ids 
+    def get_sitegroup_ids(self):
+        return self.sitegroup_ids 
 
     def get_lat(self):
         return self.lat
@@ -142,3 +150,4 @@ class SiteModel():
 
     def get_tzoffset(self):
         return self.tzoffset 
+

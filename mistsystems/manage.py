@@ -5,7 +5,7 @@ Github repository: https://github.com/tmunzer/mistsystems/
 import logging
 import json
 
-from mistsystems.manage.core import Orgs, Sites
+from mistsystems.core.core import Orgs, Sites
 from mistsystems import api
 from mistsystems.models.privileges import Privileges
 
