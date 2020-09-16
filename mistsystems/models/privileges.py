@@ -30,6 +30,14 @@ class Privileges():
                     result.append(priv.__dict__)
         return result
 
+    def find_site(self, name=None, msp_name=None):
+        result = []
+        for priv in self.privileges:
+            if priv.scope == "site":
+                if (not name.lower or name.lower() in priv.name.lower()) and (not msp_name or msp_name.lower() in priv.msp_name.lower()):
+                    result.append(priv.__dict__)
+        return result
+
     def find_msp(self, name):
         result = []
         for priv in self.privileges:
